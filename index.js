@@ -20,12 +20,19 @@ app.use("/", router);
 
 app.listen(Port, () => console.log("Server Running"));
 
+
+const env = {"USER": adityapathak,
+"PASSWORD": test123,
+"DATABASE": user_details,
+"DB_PORT": 3306,
+"HOST": '127.0.0.1'};
+
 const db = mysql.createConnection({
-    host: 127.0.0.1,
-    user:process.env.USER,
-    password:process.env.PASSWORD,
-    database:process.env.DATABASE,
-    port:3306
+    host: env.HOST,
+    user:env.USER,
+    password:env.PASSWORD,
+    database:env.DATABASE,
+    port:env.DB_PORT
 });
 
 db.connect((err) => {
